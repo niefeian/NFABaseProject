@@ -1,0 +1,6 @@
+framework module NFABaseProject {
+  umbrella header "NFABaseProject-umbrella.h"
+
+  export *
+  module * { export * }
+}

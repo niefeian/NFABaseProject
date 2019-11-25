@@ -28,8 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1EDAB24390227103B40E4DD4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		336444A048D967EFA77470CD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		1EDAB24390227103B40E4DD4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		336444A048D967EFA77470CD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		5217A32AAEBD928BE4FDCEF5 /* Pods-NFABaseProject_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFABaseProject_Example.debug.xcconfig"; path = "Target Support Files/Pods-NFABaseProject_Example/Pods-NFABaseProject_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* NFABaseProject_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFABaseProject_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		8B22AADC140440327FC2E514 /* Pods-NFABaseProject_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFABaseProject_Example.release.xcconfig"; path = "Target Support Files/Pods-NFABaseProject_Example/Pods-NFABaseProject_Example.release.xcconfig"; sourceTree = "<group>"; };
-		92D4683313CCEC0CC6D6D448 /* NFABaseProject.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = NFABaseProject.podspec; path = ../NFABaseProject.podspec; sourceTree = "<group>"; };
+		92D4683313CCEC0CC6D6D448 /* NFABaseProject.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NFABaseProject.podspec; path = ../NFABaseProject.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9A00CA3DE7EED06FE3FCC7EA /* Pods_NFABaseProject_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NFABaseProject_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2074384DFA8E973B40A2E5A /* Pods_NFABaseProject_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NFABaseProject_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6FFF48818BD3E4F4D77CA78 /* Pods-NFABaseProject_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFABaseProject_Tests.release.xcconfig"; path = "Target Support Files/Pods-NFABaseProject_Tests/Pods-NFABaseProject_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,7 +147,6 @@
 				FC63B8BFB1FD4DAE65EA633E /* Pods-NFABaseProject_Tests.debug.xcconfig */,
 				F6FFF48818BD3E4F4D77CA78 /* Pods-NFABaseProject_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -228,6 +227,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -271,10 +271,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NFABaseProject_Example/Pods-NFABaseProject_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/NFABaseProject/NFABaseProject.framework",
+				"${BUILT_PRODUCTS_DIR}/NFAToolkit/NFAToolkit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NFABaseProject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NFAToolkit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -332,6 +334,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NFABaseProject_Tests/Pods-NFABaseProject_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NFAToolkit/NFAToolkit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble-Snapshots/Nimble_Snapshots.framework",
@@ -339,6 +342,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NFAToolkit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble_Snapshots.framework",
@@ -509,7 +513,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -524,7 +528,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
