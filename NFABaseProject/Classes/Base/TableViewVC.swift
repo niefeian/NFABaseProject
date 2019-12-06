@@ -12,6 +12,7 @@ open class TableViewVC: BaseVC {
     
     public var tableView : UITableView!
     public var style : UITableView.Style! =  UITableView.Style.plain
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
 

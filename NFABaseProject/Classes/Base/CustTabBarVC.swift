@@ -7,6 +7,7 @@ import NFAToolkit
 public class CustTabBarVC: UITabBarController , UITabBarControllerDelegate{
     
     var imageView : UIImageView?
+   
     private var userTabBarItem : UITabBarItem?// 我的界面的下标
     
     override public var shouldAutorotate : Bool {
@@ -35,9 +36,7 @@ public class CustTabBarVC: UITabBarController , UITabBarControllerDelegate{
 //        self.delegate = self
     }
     
-//    @objc func reLoadData(){
-//        self.customizableViewControllers?[3] = LifeChartVC()
-//    }
+
     func initTabBarState() {
         // 初始化底部页签的状态
         let uis = self.customizableViewControllers

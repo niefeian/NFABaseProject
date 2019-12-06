@@ -8,17 +8,18 @@
 
 import UIKit
 
-class BaseTextFieldVC: BaseVC {
+open class BaseTextFieldVC: BaseVC {
 
-    var keyboardWillShows = [UIView]()
-    var textFields = [UITextField]()
-    var isShowTextField = false
-    override func viewDidLoad() {
+   public var keyboardWillShows = [UIView]()
+   public var textFields = [UITextField]()
+   public var isShowTextField = false
+    
+    override open func viewDidLoad() {
         super.viewDidLoad()
         registerKeyboardNotification()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.oneTap))
-                     tapGesture.numberOfTapsRequired = 1
-                     tapGesture.delegate = self
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.delegate = self
         self.view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
     }
@@ -28,7 +29,7 @@ class BaseTextFieldVC: BaseVC {
     }
     
     
-    func registerKeyboardNotification() {
+   public func registerKeyboardNotification() {
           NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
           NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
 
@@ -36,7 +37,7 @@ class BaseTextFieldVC: BaseVC {
           NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
        }
           
-       @objc func keyboardWillShow(notification: NSNotification) {
+    @objc public func keyboardWillShow(notification: NSNotification) {
            let userInfo = notification.userInfo! as NSDictionary
             let keyboardBounds = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             if keyboardBounds == nil {
@@ -62,22 +63,23 @@ class BaseTextFieldVC: BaseVC {
             }
        }
 
-       @objc func keyboardWillHide(notification: NSNotification) {
-            isShowTextField = false
-           let animation:(() -> Void) = {
-               for view in self.keyboardWillShows{
-                   view.transform = .identity
-               }
-           }
-           let userInfo = notification.userInfo! as NSDictionary
-           let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-           if duration > 0 {
-               let options = UIView.AnimationOptions(rawValue: UInt((userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber).intValue << 16))
-               UIView.animate(withDuration: duration, delay: 0, options: options, animations: animation, completion: nil)
-           } else {
-               animation()
+    @objc public func keyboardWillHide(notification: NSNotification) {
+        isShowTextField = false
+        
+       let animation:(() -> Void) = {
+           for view in self.keyboardWillShows{
+               view.transform = .identity
            }
        }
+       let userInfo = notification.userInfo! as NSDictionary
+       let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+       if duration > 0 {
+           let options = UIView.AnimationOptions(rawValue: UInt((userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber).intValue << 16))
+           UIView.animate(withDuration: duration, delay: 0, options: options, animations: animation, completion: nil)
+       } else {
+           animation()
+       }
+    }
 
     /*
     // MARK: - Navigation
@@ -93,7 +95,7 @@ class BaseTextFieldVC: BaseVC {
 
 }
 extension BaseTextFieldVC : UIGestureRecognizerDelegate{
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         let vString = "\(touch.view!.classForCoder)"
         if  vString == "UITextField" {
             return false
@@ -106,7 +108,6 @@ extension BaseTextFieldVC : UIGestureRecognizerDelegate{
                 }
             }
         }
-       
         return true
     }
 }

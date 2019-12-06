@@ -16,9 +16,9 @@ open class AbsTableViewCell: UITableViewCell {
     public var userData : AnyObject?
     public weak var baseView : UIViewController!
     public var cb : CB!
+    
     override open func awakeFromNib() {
         super.awakeFromNib()
-       
         // Initialization code
     }
     
