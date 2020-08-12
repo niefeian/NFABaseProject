@@ -20,11 +20,11 @@ public class CustTabBarVC: UITabBarController , UITabBarControllerDelegate{
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        
-        let attr = NSDictionary(object: colorConversion(colorValue: "##1D2742"), forKey: NSAttributedString.Key.foregroundColor as NSCopying)
+       
+        let attr = NSDictionary(object:  UIColor.initString("##1D2742"), forKey: NSAttributedString.Key.foregroundColor as NSCopying)
         UITabBarItem.appearance().setTitleTextAttributes(attr as? [NSAttributedString.Key : Any], for: UIControl.State.selected)
         
-        let attr2 = NSDictionary(object: colorConversion(colorValue: "##929DB2"), forKey: NSAttributedString.Key.foregroundColor as NSCopying)
+        let attr2 = NSDictionary(object: UIColor.initString("##929DB2"), forKey: NSAttributedString.Key.foregroundColor as NSCopying)
         UITabBarItem.appearance().setTitleTextAttributes(attr2 as? [NSAttributedString.Key : Any], for: UIControl.State.normal)
 //        initTabBarState()
         

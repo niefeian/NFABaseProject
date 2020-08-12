@@ -1,6 +1,6 @@
 {
   "name": "NFABaseProject",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "summary": "A short description of NFABaseProject.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/niefeian/NFABaseProject",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/niefeian/NFABaseProject.git",
-    "tag": "0.0.2"
+    "tag": "0.0.4"
   },
   "platforms": {
     "ios": "8.0"
