@@ -18,7 +18,7 @@ public enum PopupCustomOption {
     case movesAlongWithKeyboard(Bool)
 }
 
-typealias PopupAnimateCompletion =  () -> ()
+public typealias PopupAnimateCompletion =  () -> ()
 
 // MARK: - Protocols
 /** PopupContentViewController:
@@ -125,7 +125,7 @@ open class PopupController: UIViewController {
 public extension PopupController {
     
     // MARK: Classes
-    class func create(_ parentViewController: UIViewController) -> PopupController {
+   public class func create(_ parentViewController: UIViewController) -> PopupController {
         let controller = PopupController()
         controller.defaultConfigure()
         
@@ -136,12 +136,12 @@ public extension PopupController {
         return controller
     }
     
-    func customize(_ options: [PopupCustomOption]) -> PopupController {
+   public func customize(_ options: [PopupCustomOption]) -> PopupController {
         customOptions(options)
         return self
     }
     
-    func show(_ childViewController: UIViewController) -> PopupController {
+   public func show(_ childViewController: UIViewController) -> PopupController {
         self.addChild(childViewController)
         popupView = childViewController.view
         configure()
@@ -153,17 +153,17 @@ public extension PopupController {
         return self
     }
     
-    func didShowHandler(_ handler: @escaping (PopupController) -> Void) -> PopupController {
+   public func didShowHandler(_ handler: @escaping (PopupController) -> Void) -> PopupController {
         self.showedHandler = handler
         return self
     }
     
-    func didCloseHandler(_ handler: @escaping (PopupController) -> Void) -> PopupController {
+   public func didCloseHandler(_ handler: @escaping (PopupController) -> Void) -> PopupController {
         self.closedHandler = handler
         return self
     }
     
-    func dismiss(_ completion: (() -> Void)? = nil) {
+   public func dismiss(_ completion: (() -> Void)? = nil) {
         if isShowingKeyboard {
             popupView.endEditing(true)
         }

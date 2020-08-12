@@ -1,6 +1,5 @@
 //
 //  BaseVC.swift
-//  zhouyi
 //
 //  Created by admin on 2019/7/16.
 //  Copyright © 2019 聂飞安. All rights reserved.
@@ -28,12 +27,12 @@ open class BaseVC: UIViewController , IDataPost {
     }
     
 
-    @objc func reLoadData(){
+    @objc open func reLoadData(){
         
     }
     
     
-    lazy var backImgBtn: UIButton = {
+    lazy public var backImgBtn: UIButton = {
         //设置返回按钮属性
         let backBtn = UIButton(type: UIButton.ButtonType.custom)
         
@@ -51,7 +50,7 @@ open class BaseVC: UIViewController , IDataPost {
     
     
     //生成一个指定颜色的图片
-    func createImageWithColor(_ color: UIColor, frame: CGRect) -> UIImage? {
+   public func createImageWithColor(_ color: UIColor, frame: CGRect) -> UIImage? {
         // 开始绘图
         UIGraphicsBeginImageContext(frame.size)
         
@@ -79,7 +78,7 @@ open class BaseVC: UIViewController , IDataPost {
     var blankImage: CustomImageView?
     var blankLabel: UILabel?
     //加了一个高度属性，针对不同的页面可以自定义头部距离
-    func showBlankDataTip(_ message : String = "网络不可用，请检查您的网络连接"  ,imgString : String = "pic_kong_wangluo",topConstant:CGFloat = AppHeight*0.3, addInTheView: UIView , cb : @escaping CBWithParam) {
+    public func showBlankDataTip(_ message : String = "网络不可用，请检查您的网络连接"  ,imgString : String = "pic_kong_wangluo",topConstant:CGFloat = AppHeight*0.3, addInTheView: UIView , cb : @escaping CBWithParam) {
         if blankImage?.superview != nil {
             return
         }
@@ -103,7 +102,7 @@ open class BaseVC: UIViewController , IDataPost {
       
     }
     
-    func hiddenBlankDataTip() {
+   public func hiddenBlankDataTip() {
         blankImage?.removeFromSuperview()
         blankLabel?.removeFromSuperview()
         blankImage = nil
@@ -113,12 +112,8 @@ open class BaseVC: UIViewController , IDataPost {
     
     override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        curViewControllerToSelf()
     }
     
-    func curViewControllerToSelf(){
-       
-    }
     
     open func postData(_ postData : AnyObject?) {
         self.postData = postData
@@ -135,7 +130,7 @@ open class BaseVC: UIViewController , IDataPost {
         
     }
     
-    @objc func backAction() {
+    @objc open func backAction() {
         Tools.popView(self)
     }
     
@@ -154,8 +149,4 @@ open class BaseVC: UIViewController , IDataPost {
     */
 
 }
-//extension BaseVC : UIScrollViewDelegate{
-//    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        scrollView.bounces = scrollView.contentOffset.y >= 10
-//    }
-//}
+
